@@ -5,7 +5,7 @@ const architecture = [
 
 {
 title:"CORETRION™ Architecture",
-image:"/images/coretrion-overall.png",
+image:"/images/coretrion_overall.png",
 description:
 "Complete processor architecture combining scalar execution, SIMD acceleration, Tensor compute and GPU processing."
 },

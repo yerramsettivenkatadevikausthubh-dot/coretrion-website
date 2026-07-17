@@ -3,1344 +3,1027 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
+
 
+export default function Navbar() {
 
-export default function Navbar(){
+  const [mobile, setMobile] = useState(false);
 
+  const [products, setProducts] = useState(false);
+  const [technology, setTechnology] = useState(false);
+  const [engineering, setEngineering] = useState(false);
+  const [documentation, setDocumentation] = useState(false);
 
-const [mobile,setMobile]=useState(false);
+  const [mobileProducts, setMobileProducts] = useState(false);
+  const [mobileTechnology, setMobileTechnology] = useState(false);
+  const [mobileEngineering, setMobileEngineering] = useState(false);
+  const [mobileDocumentation, setMobileDocumentation] = useState(false);
 
 
-const [products,setProducts]=useState(false);
-const [technology,setTechnology]=useState(false);
-const [engineering,setEngineering]=useState(false);
-const [documentation,setDocumentation]=useState(false);
+  return (
 
+    <nav
+      className="
+      fixed
+      top-0
+      z-50
+      w-full
+      bg-black/70
+      backdrop-blur-xl
+      border-b
+      border-white/10
+      "
+    >
+
+      <div
+        className="
+        max-w-7xl
+        mx-auto
+        px-6
+        py-5
+        flex
+        justify-between
+        items-center
+        "
+      >
+
+
+        {/* LOGO */}
+
+        <Link
+          href="/"
+          className="
+          text-white
+          text-2xl
+          font-black
+          tracking-widest
+          "
+        >
+          CORETRION™
+        </Link>
 
 
-const [mobileProducts,setMobileProducts]=useState(false);
-const [mobileTechnology,setMobileTechnology]=useState(false);
-const [mobileEngineering,setMobileEngineering]=useState(false);
-const [mobileDocumentation,setMobileDocumentation]=useState(false);
+
+
+        {/* DESKTOP MENU */}
 
+        <div
+          className="
+          hidden
+          md:flex
+          items-center
+          gap-8
+          text-gray-300
+          "
+        >
 
 
-return(
 
+          {/* PRODUCTS */}
 
-<nav
+          <div
+            className="relative"
+            onMouseEnter={() => setProducts(true)}
+            onMouseLeave={() => setProducts(false)}
+          >
 
-className="
-fixed
-top-0
-z-50
-w-full
-bg-black/70
-backdrop-blur-xl
-border-b
-border-white/10
-"
+            <div
+              className="
+              flex
+              items-center
+              gap-2
+              cursor-pointer
+              hover:text-white
+              transition
+              "
+            >
 
->
+              Products
 
+              <ChevronDown size={16}/>
 
-<div
+            </div>
 
-className="
-max-w-7xl
-mx-auto
-px-6
-py-5
-flex
-justify-between
-items-center
-"
 
->
 
+            {
+              products &&
 
-{/* LOGO */}
+              <motion.div
 
+                initial={{
+                  opacity:0,
+                  y:10
+                }}
 
-<a
+                animate={{
+                  opacity:1,
+                  y:0
+                }}
 
-href="/"
+                className="
+                absolute
+                top-10
+                left-0
+                w-72
+                bg-black
+                rounded-xl
+                border
+                border-white/10
+                p-5
+                shadow-xl
+                "
+              >
 
-className="
-text-white
-text-2xl
-font-black
-tracking-widest
-"
 
->
+                <Link
+                  href="/products/coretrion"
+                  className="
+                  block
+                  py-3
+                  hover:text-cyan-400
+                  transition
+                  "
+                >
 
-CORETRION™
+                  CORETRION™
 
-</a>
+                  <p className="text-sm text-gray-500">
+                    Processor Platform
+                  </p>
 
+                </Link>
 
 
 
+                <Link
+                  href="/products/corelink"
+                  className="
+                  block
+                  py-3
+                  hover:text-purple-400
+                  transition
+                  "
+                >
 
+                  CORELINK™
 
+                  <p className="text-sm text-gray-500">
+                    Interconnect Fabric
+                  </p>
 
-{/* DESKTOP MENU */}
+                </Link>
 
 
-<div
 
-className="
-hidden
-md:flex
-items-center
-gap-8
-text-gray-300
-"
+                <Link
+                  href="/products/chipsetron"
+                  className="
+                  block
+                  py-3
+                  hover:text-green-400
+                  transition
+                  "
+                >
 
->
+                  CHIPSETRON™
 
+                  <p className="text-sm text-gray-500">
+                    System Controller
+                  </p>
 
+                </Link>
 
 
+              </motion.div>
 
+            }
 
-{/* PRODUCTS */}
 
+          </div>
 
 
-<div
 
-className="relative"
 
-onMouseEnter={()=>setProducts(true)}
 
-onMouseLeave={()=>setProducts(false)}
+          {/* TECHNOLOGY */}
 
->
 
+          <div
+            className="relative"
+            onMouseEnter={() => setTechnology(true)}
+            onMouseLeave={() => setTechnology(false)}
+          >
 
-<div
 
-className="
-flex
-items-center
-gap-2
-cursor-pointer
-hover:text-white
-transition
-"
+            <div
+              className="
+              flex
+              items-center
+              gap-2
+              cursor-pointer
+              hover:text-white
+              transition
+              "
+            >
 
->
+              Technology
 
-Products
+              <ChevronDown size={16}/>
 
-<ChevronDown size={16}/>
+            </div>
 
-</div>
 
 
+            {
+              technology &&
 
-{
 
+              <motion.div
 
-products &&
+                initial={{
+                  opacity:0,
+                  y:10
+                }}
 
+                animate={{
+                  opacity:1,
+                  y:0
+                }}
 
-<motion.div
+                className="
+                absolute
+                top-10
+                left-0
+                w-80
+                bg-black
+                rounded-xl
+                border
+                border-white/10
+                p-5
+                shadow-xl
+                "
+              >
 
 
-initial={{
-opacity:0,
-y:10
-}}
+                <Link
+                  href="/technology"
+                  className="block py-2 hover:text-cyan-400"
+                >
+                  CORETRION Architecture
+                </Link>
 
-animate={{
-opacity:1,
-y:0
-}}
 
+                <Link
+                  href="/technology/pipeline"
+                  className="block py-2 hover:text-cyan-400"
+                >
+                  Processor Pipeline
+                </Link>
 
-className="
-absolute
-top-10
-left-0
-w-72
-bg-black
-rounded-xl
-border
-border-white/10
-p-5
-shadow-xl
-"
 
->
+                <Link
+                  href="/technology/simd"
+                  className="block py-2 hover:text-cyan-400"
+                >
+                  SIMD Engine
+                </Link>
 
 
+                <Link
+                  href="/technology/tensor"
+                  className="block py-2 hover:text-cyan-400"
+                >
+                  Tensor Accelerator
+                </Link>
 
-<a
 
-href="/products/coretrion"
+                <Link
+                  href="/technology/gpu"
+                  className="block py-2 hover:text-cyan-400"
+                >
+                  GPU Architecture
+                </Link>
 
-className="
-block
-py-3
-hover:text-cyan-400
-transition
-"
 
->
+                <Link
+                  href="/technology/memory"
+                  className="block py-2 hover:text-cyan-400"
+                >
+                  Memory System
+                </Link>
 
-CORETRION™
 
-<p className="
-text-sm
-text-gray-500
-">
+                <Link
+                  href="/technology/security"
+                  className="block py-2 hover:text-cyan-400"
+                >
+                  Security Architecture
+                </Link>
 
-Processor Platform
 
-</p>
+                <Link
+                  href="/technology/corelink"
+                  className="block py-2 hover:text-purple-400"
+                >
+                  CORELINK Fabric
+                </Link>
 
 
-</a>
+              </motion.div>
 
+            }
 
 
+          </div>
+                    {/* ENGINEERING */}
 
 
-<a
+          <div
+            className="relative"
+            onMouseEnter={() => setEngineering(true)}
+            onMouseLeave={() => setEngineering(false)}
+          >
 
-href="/products/corelink"
+            <div
+              className="
+              flex
+              items-center
+              gap-2
+              cursor-pointer
+              hover:text-white
+              transition
+              "
+            >
 
-className="
-block
-py-3
-hover:text-purple-400
-transition
-"
+              Engineering
 
->
+              <ChevronDown size={16}/>
 
-CORELINK™
+            </div>
 
-<p className="
-text-sm
-text-gray-500
-">
 
-Interconnect Fabric
 
-</p>
+            {
+              engineering &&
 
 
-</a>
+              <motion.div
 
+                initial={{
+                  opacity:0,
+                  y:10
+                }}
 
+                animate={{
+                  opacity:1,
+                  y:0
+                }}
 
+                className="
+                absolute
+                top-10
+                left-0
+                w-72
+                bg-black
+                rounded-xl
+                border
+                border-white/10
+                p-5
+                shadow-xl
+                "
+              >
 
 
-<a
+                <Link
+                  href="/engineering/rtl"
+                  className="block py-3 hover:text-cyan-400"
+                >
+                  RTL Development
+                </Link>
 
-href="/products/chipsetron"
 
-className="
-block
-py-3
-hover:text-green-400
-transition
-"
+                <Link
+                  href="/engineering/fpga"
+                  className="block py-3 hover:text-cyan-400"
+                >
+                  FPGA Implementation
+                </Link>
 
->
 
-CHIPSETRON™
+                <Link
+                  href="/engineering/verification"
+                  className="block py-3 hover:text-cyan-400"
+                >
+                  Verification
+                </Link>
 
-<p className="
-text-sm
-text-gray-500
-">
 
-System Controller
+                <Link
+                  href="/engineering/simulation"
+                  className="block py-3 hover:text-cyan-400"
+                >
+                  Simulation Results
+                </Link>
 
-</p>
 
+                <Link
+                  href="/engineering/asic"
+                  className="block py-3 hover:text-cyan-400"
+                >
+                  ASIC Flow
+                </Link>
 
-</a>
 
+              </motion.div>
 
+            }
 
+          </div>
 
-</motion.div>
 
 
-}
 
 
 
-</div>
 
 
+          {/* DOCUMENTATION */}
 
 
 
+          <div
+            className="relative"
+            onMouseEnter={() => setDocumentation(true)}
+            onMouseLeave={() => setDocumentation(false)}
+          >
 
 
+            <div
+              className="
+              flex
+              items-center
+              gap-2
+              cursor-pointer
+              hover:text-white
+              transition
+              "
+            >
 
+              Documentation
 
-{/* TECHNOLOGY */}
+              <ChevronDown size={16}/>
 
+            </div>
 
 
-<div
 
-className="relative"
 
-onMouseEnter={()=>setTechnology(true)}
+            {
+              documentation &&
 
-onMouseLeave={()=>setTechnology(false)}
 
->
+              <motion.div
 
+                initial={{
+                  opacity:0,
+                  y:10
+                }}
 
-<div
+                animate={{
+                  opacity:1,
+                  y:0
+                }}
 
-className="
-flex
-items-center
-gap-2
-cursor-pointer
-hover:text-white
-transition
-"
+                className="
+                absolute
+                top-10
+                left-0
+                w-80
+                bg-black
+                rounded-xl
+                border
+                border-white/10
+                p-5
+                shadow-xl
+                "
+              >
 
->
 
-Technology
+                <Link
+                  href="/documentation"
+                  className="block py-3 hover:text-cyan-400"
+                >
+                  Documentation Home
+                </Link>
 
-<ChevronDown size={16}/>
 
-</div>
+                <Link
+                  href="/documentation/isa"
+                  className="block py-3 hover:text-cyan-400"
+                >
+                  Processor ISA
+                </Link>
 
 
+                <Link
+                  href="/documentation/architecture"
+                  className="block py-3 hover:text-cyan-400"
+                >
+                  Architecture Reference
+                </Link>
 
 
+                <Link
+                  href="/documentation/rtl"
+                  className="block py-3 hover:text-cyan-400"
+                >
+                  RTL Documentation
+                </Link>
 
-{
 
+                <Link
+                  href="/documentation/verification"
+                  className="block py-3 hover:text-cyan-400"
+                >
+                  Verification Reports
+                </Link>
 
-technology &&
 
+                <Link
+                  href="/documentation/programming"
+                  className="block py-3 hover:text-cyan-400"
+                >
+                  Programming Guide
+                </Link>
 
-<motion.div
 
+                <Link
+                  href="/documentation/resources"
+                  className="block py-3 hover:text-cyan-400"
+                >
+                  Developer Resources
+                </Link>
 
-initial={{
-opacity:0,
-y:10
-}}
 
-animate={{
-opacity:1,
-y:0
-}}
+              </motion.div>
 
+            }
 
 
-className="
-absolute
-top-10
-left-0
-w-80
-bg-black
-rounded-xl
-border
-border-white/10
-p-5
-shadow-xl
-"
+          </div>
 
->
 
 
 
-<a
-href="/technology"
-className="
-block
-py-2
-hover:text-cyan-400
-"
->
 
-CORETRION Architecture
 
-</a>
 
+          {/* SIMPLE LINKS */}
 
 
-<a
-href="/technology/pipeline"
-className="
-block
-py-2
-hover:text-cyan-400
-"
->
+          <Link
+            href="/roadmap"
+            className="
+            hover:text-white
+            transition
+            "
+          >
+            Roadmap
+          </Link>
 
-Processor Pipeline
 
-</a>
 
+          <Link
+            href="/contact"
+            className="
+            hover:text-white
+            transition
+            "
+          >
+            Contact
+          </Link>
 
 
 
-<a
-href="/technology/simd"
-className="
-block
-py-2
-hover:text-cyan-400
-"
->
+        </div>
 
-SIMD Engine
 
-</a>
 
 
 
-<a
-href="/technology/tensor"
-className="
-block
-py-2
-hover:text-cyan-400
-"
->
 
-Tensor Accelerator
+        {/* MOBILE BUTTON */}
 
-</a>
 
+        <button
 
+          className="
+          md:hidden
+          text-white
+          "
 
+          onClick={() => setMobile(!mobile)}
 
-<a
-href="/technology/gpu"
-className="
-block
-py-2
-hover:text-cyan-400
-"
->
+        >
 
-GPU Architecture
+          {
+            mobile
+            ?
+            <X/>
+            :
+            <Menu/>
+          }
 
-</a>
 
+        </button>
 
 
+      </div>
 
-<a
-href="/technology/memory"
-className="
-block
-py-2
-hover:text-cyan-400
-"
->
+      {/* MOBILE MENU */}
 
-Memory System
 
-</a>
+      {
+        mobile &&
 
 
+        <div
 
+          className="
+          md:hidden
+          bg-black
+          border-t
+          border-white/10
+          p-8
+          text-white
+          space-y-6
+          "
 
-<a
-href="/technology/security"
-className="
-block
-py-2
-hover:text-cyan-400
-"
->
+        >
 
-Security Architecture
 
-</a>
 
 
 
+          {/* PRODUCTS MOBILE */}
 
-<a
-href="/technology/corelink"
-className="
-block
-py-2
-hover:text-purple-400
-"
->
 
-CORELINK Fabric
+          <div>
 
-</a>
 
+            <button
 
+              onClick={() => setMobileProducts(!mobileProducts)}
 
-</motion.div>
+              className="
+              flex
+              items-center
+              gap-2
+              "
 
+            >
 
-}
+              Products
 
+              <ChevronDown size={16}/>
 
-</div>
+            </button>
 
-{/* ENGINEERING */}
 
 
-<div
+            {
+              mobileProducts &&
 
-className="relative"
 
-onMouseEnter={()=>setEngineering(true)}
+              <div
 
-onMouseLeave={()=>setEngineering(false)}
+                className="
+                ml-5
+                mt-4
+                space-y-3
+                text-gray-400
+                "
 
->
+              >
 
+                <Link href="/products/coretrion">
+                  CORETRION™
+                </Link>
 
-<div
 
-className="
-flex
-items-center
-gap-2
-cursor-pointer
-hover:text-white
-transition
-"
+                <Link href="/products/corelink">
+                  CORELINK™
+                </Link>
 
->
 
-Engineering
+                <Link href="/products/chipsetron">
+                  CHIPSETRON™
+                </Link>
 
-<ChevronDown size={16}/>
 
-</div>
+              </div>
 
+            }
 
 
-{
+          </div>
 
 
-engineering &&
 
 
-<motion.div
 
-initial={{
-opacity:0,
-y:10
-}}
 
-animate={{
-opacity:1,
-y:0
-}}
 
-className="
-absolute
-top-10
-left-0
-w-72
-bg-black
-rounded-xl
-border
-border-white/10
-p-5
-shadow-xl
-"
 
->
+          {/* TECHNOLOGY MOBILE */}
 
 
-<a
-href="/engineering/rtl"
-className="
-block
-py-3
-hover:text-cyan-400
-"
->
+          <div>
 
-RTL Development
 
-</a>
+            <button
 
+              onClick={() => setMobileTechnology(!mobileTechnology)}
 
+              className="
+              flex
+              items-center
+              gap-2
+              "
 
-<a
-href="/engineering/fpga"
-className="
-block
-py-3
-hover:text-cyan-400
-"
->
+            >
 
-FPGA Implementation
+              Technology
 
-</a>
+              <ChevronDown size={16}/>
 
+            </button>
 
 
-<a
-href="/engineering/verification"
-className="
-block
-py-3
-hover:text-cyan-400
-"
->
 
-Verification
+            {
+              mobileTechnology &&
 
-</a>
 
+              <div
 
+                className="
+                ml-5
+                mt-4
+                space-y-3
+                text-gray-400
+                "
 
-<a
-href="/engineering/simulation"
-className="
-block
-py-3
-hover:text-cyan-400
-"
->
+              >
 
-Simulation Results
+                <Link href="/technology">
+                  CORETRION Architecture
+                </Link>
 
-</a>
 
+                <Link href="/technology/pipeline">
+                  Processor Pipeline
+                </Link>
 
 
-<a
-href="/engineering/asic"
-className="
-block
-py-3
-hover:text-cyan-400
-"
->
+                <Link href="/technology/simd">
+                  SIMD Engine
+                </Link>
 
-ASIC Flow
 
-</a>
+                <Link href="/technology/tensor">
+                  Tensor Accelerator
+                </Link>
 
 
-</motion.div>
+                <Link href="/technology/gpu">
+                  GPU Architecture
+                </Link>
 
 
-}
+                <Link href="/technology/memory">
+                  Memory System
+                </Link>
 
 
-</div>
+                <Link href="/technology/security">
+                  Security Architecture
+                </Link>
 
 
+                <Link href="/technology/corelink">
+                  CORELINK Fabric
+                </Link>
 
 
+              </div>
 
+            }
 
 
+          </div>
 
 
-{/* DOCUMENTATION */}
 
 
 
-<div
 
-className="relative"
 
-onMouseEnter={()=>setDocumentation(true)}
 
-onMouseLeave={()=>setDocumentation(false)}
+          {/* ENGINEERING MOBILE */}
 
->
 
 
-<div
+          <div>
 
-className="
-flex
-items-center
-gap-2
-cursor-pointer
-hover:text-white
-transition
-"
 
->
+            <button
 
-Documentation
+              onClick={() => setMobileEngineering(!mobileEngineering)}
 
-<ChevronDown size={16}/>
+              className="
+              flex
+              items-center
+              gap-2
+              "
 
-</div>
+            >
 
+              Engineering
 
+              <ChevronDown size={16}/>
 
+            </button>
 
-{
 
 
-documentation &&
+            {
+              mobileEngineering &&
 
 
-<motion.div
+              <div
 
-initial={{
-opacity:0,
-y:10
-}}
+                className="
+                ml-5
+                mt-4
+                space-y-3
+                text-gray-400
+                "
 
-animate={{
-opacity:1,
-y:0
-}}
+              >
 
+                <Link href="/engineering/rtl">
+                  RTL Development
+                </Link>
 
-className="
-absolute
-top-10
-left-0
-w-80
-bg-black
-rounded-xl
-border
-border-white/10
-p-5
-shadow-xl
-"
 
->
+                <Link href="/engineering/fpga">
+                  FPGA Implementation
+                </Link>
 
 
+                <Link href="/engineering/verification">
+                  Verification
+                </Link>
 
-<a
-href="/documentation"
-className="
-block
-py-3
-hover:text-cyan-400
-"
->
 
-Documentation Home
+                <Link href="/engineering/simulation">
+                  Simulation
+                </Link>
 
-</a>
 
+                <Link href="/engineering/asic">
+                  ASIC Flow
+                </Link>
 
 
+              </div>
 
-<a
-href="/documentation/isa"
-className="
-block
-py-3
-hover:text-cyan-400
-"
->
+            }
 
-Processor ISA
 
-</a>
+          </div>
 
 
 
 
-<a
-href="/documentation/architecture"
-className="
-block
-py-3
-hover:text-cyan-400
-"
->
 
-Architecture Reference
 
-</a>
 
 
+          {/* DOCUMENTATION MOBILE */}
 
 
-<a
-href="/documentation/rtl"
-className="
-block
-py-3
-hover:text-cyan-400
-"
->
 
-RTL Documentation
+          <div>
 
-</a>
 
+            <button
 
+              onClick={() => setMobileDocumentation(!mobileDocumentation)}
 
+              className="
+              flex
+              items-center
+              gap-2
+              "
 
-<a
-href="/documentation/verification"
-className="
-block
-py-3
-hover:text-cyan-400
-"
->
+            >
 
-Verification Reports
+              Documentation
 
-</a>
+              <ChevronDown size={16}/>
 
+            </button>
 
 
 
-<a
-href="/documentation/programming"
-className="
-block
-py-3
-hover:text-cyan-400
-"
->
 
-Programming Guide
+            {
+              mobileDocumentation &&
 
-</a>
 
+              <div
 
+                className="
+                ml-5
+                mt-4
+                space-y-3
+                text-gray-400
+                "
 
+              >
 
-<a
-href="/documentation/resources"
-className="
-block
-py-3
-hover:text-cyan-400
-"
->
+                <Link href="/documentation">
+                  Documentation Home
+                </Link>
 
-Developer Resources
 
-</a>
+                <Link href="/documentation/isa">
+                  Processor ISA
+                </Link>
 
 
+                <Link href="/documentation/architecture">
+                  Architecture Reference
+                </Link>
 
 
-</motion.div>
+                <Link href="/documentation/rtl">
+                  RTL Documentation
+                </Link>
 
 
-}
+                <Link href="/documentation/verification">
+                  Verification Reports
+                </Link>
 
 
-</div>
+                <Link href="/documentation/programming">
+                  Programming Guide
+                </Link>
 
 
+                <Link href="/documentation/resources">
+                  Developer Resources
+                </Link>
 
 
+              </div>
 
+            }
 
 
+          </div>
 
-<a
-href="/roadmap"
-className="
-hover:text-white
-transition
-"
->
 
-Roadmap
 
-</a>
 
 
 
 
-<a
-href="/contact"
-className="
-hover:text-white
-transition
-"
->
 
-Contact
+          <Link href="/roadmap">
+            Roadmap
+          </Link>
 
-</a>
 
+          <Link href="/contact">
+            Contact
+          </Link>
 
 
 
 
+        </div>
 
-</div>
+      }
 
 
+    </nav>
 
-
-
-
-
-
-
-{/* MOBILE BUTTON */}
-
-
-<button
-
-className="
-md:hidden
-text-white
-"
-
-onClick={()=>setMobile(!mobile)}
-
->
-
-
-{
-
-mobile ?
-
-<X/>
-
-:
-
-<Menu/>
-
-}
-
-
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-{/* MOBILE MENU */}
-
-
-
-{
-
-
-mobile &&
-
-
-
-<div
-
-className="
-md:hidden
-bg-black
-border-t
-border-white/10
-p-8
-text-white
-space-y-6
-"
-
->
-
-
-
-
-
-{/* PRODUCTS MOBILE */}
-
-
-<div>
-
-
-<button
-
-onClick={()=>setMobileProducts(!mobileProducts)}
-
-className="
-flex
-items-center
-gap-2
-"
-
->
-
-Products
-
-<ChevronDown size={16}/>
-
-</button>
-
-
-
-{
-
-
-mobileProducts &&
-
-
-<div
-
-className="
-ml-5
-mt-4
-space-y-3
-text-gray-400
-"
-
->
-
-
-<a href="/products/coretrion">
-CORETRION™
-</a>
-
-
-<a href="/products/corelink">
-CORELINK™
-</a>
-
-
-<a href="/products/chipsetron">
-CHIPSETRON™
-</a>
-
-
-</div>
-
-
-}
-
-
-
-</div>
-
-
-
-
-
-
-
-
-{/* TECHNOLOGY MOBILE */}
-
-
-<div>
-
-
-<button
-
-onClick={()=>setMobileTechnology(!mobileTechnology)}
-
-className="
-flex
-items-center
-gap-2
-"
-
->
-
-Technology
-
-<ChevronDown size={16}/>
-
-</button>
-
-
-
-{
-
-
-mobileTechnology &&
-
-
-<div
-
-className="
-ml-5
-mt-4
-space-y-3
-text-gray-400
-"
-
->
-
-
-<a href="/technology">
-CORETRION Architecture
-</a>
-
-
-<a href="/technology/pipeline">
-Processor Pipeline
-</a>
-
-
-<a href="/technology/simd">
-SIMD Engine
-</a>
-
-
-<a href="/technology/tensor">
-Tensor Accelerator
-</a>
-
-
-<a href="/technology/gpu">
-GPU Architecture
-</a>
-
-
-<a href="/technology/memory">
-Memory System
-</a>
-
-
-<a href="/technology/security">
-Security Architecture
-</a>
-
-
-</div>
-
-
-}
-
-
-
-</div>
-
-
-
-
-
-
-
-
-{/* ENGINEERING MOBILE */}
-
-
-
-<div>
-
-
-<button
-
-onClick={()=>setMobileEngineering(!mobileEngineering)}
-
-className="
-flex
-items-center
-gap-2
-"
-
->
-
-Engineering
-
-<ChevronDown size={16}/>
-
-</button>
-
-
-
-{
-
-
-mobileEngineering &&
-
-
-<div
-
-className="
-ml-5
-mt-4
-space-y-3
-text-gray-400
-"
-
->
-
-
-<a href="/engineering/rtl">
-RTL Development
-</a>
-
-
-<a href="/engineering/fpga">
-FPGA Implementation
-</a>
-
-
-<a href="/engineering/verification">
-Verification
-</a>
-
-
-<a href="/engineering/simulation">
-Simulation
-</a>
-
-
-<a href="/engineering/asic">
-ASIC Flow
-</a>
-
-
-</div>
-
-
-}
-
-
-</div>
-
-
-
-
-
-
-
-
-
-{/* DOCUMENTATION MOBILE */}
-
-
-<div>
-
-
-<button
-
-onClick={()=>setMobileDocumentation(!mobileDocumentation)}
-
-className="
-flex
-items-center
-gap-2
-"
-
->
-
-Documentation
-
-<ChevronDown size={16}/>
-
-</button>
-
-
-
-
-{
-
-
-mobileDocumentation &&
-
-
-<div
-
-className="
-ml-5
-mt-4
-space-y-3
-text-gray-400
-"
-
->
-
-
-<a href="/documentation">
-Documentation Home
-</a>
-
-
-<a href="/documentation/isa">
-Processor ISA
-</a>
-
-
-<a href="/documentation/architecture">
-Architecture Reference
-</a>
-
-
-<a href="/documentation/rtl">
-RTL Documentation
-</a>
-
-
-<a href="/documentation/verification">
-Verification Reports
-</a>
-
-
-<a href="/documentation/programming">
-Programming Guide
-</a>
-
-
-<a href="/documentation/resources">
-Developer Resources
-</a>
-
-
-</div>
-
-
-}
-
-
-</div>
-
-
-
-
-
-
-
-
-<a href="/roadmap">
-Roadmap
-</a>
-
-
-<a href="/contact">
-Contact
-</a>
-
-
-
-
-
-</div>
-
-
-}
-
-
-
-</nav>
-
-
-)
+  );
 
 }

@@ -271,7 +271,7 @@ export default function Hero() {
             "
           >
             <Image
-              src="/images/CORETRION.png"
+              src="/images/coretrion.png"
               alt="CORETRION Processor"
               fill
               priority

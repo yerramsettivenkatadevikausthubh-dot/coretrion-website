@@ -31,13 +31,16 @@ export default function ArchitectureExplorer() {
 
             {architectureData.map((item) => (
 
-              <BlockCard
-                key={item.title}
-                title={item.title}
-                description={item.short}
-                active={item.title === active.title}
-                onClick={() => setActive(item)}
-              />
+            <BlockCard
+  key={item.title}
+  data={{
+    title: item.title,
+    description: item.short,
+    image: item.image,
+  }}
+  active={item.title === active.title}
+  onClick={() => setActive(item)}
+/>
 
             ))}
 
