@@ -1,49 +1,55 @@
-import Link from "next/link";
+"use client";
 
 
-const architecture=[
+const architecture = [
 
 {
-title:"CORETRION Architecture",
+title:"CORETRION™ Architecture",
 image:"/images/coretrion-overall.png",
 description:
-"Complete processor architecture integrating scalar compute, SIMD, Tensor and GPU engines."
+"Complete processor architecture combining scalar execution, SIMD acceleration, Tensor compute and GPU processing."
 },
+
 
 {
 title:"Pipeline Architecture",
 image:"/images/coretrion-datapath.png",
 description:
-"Multi-stage execution pipeline with optimized instruction flow."
+"Multi-stage instruction pipeline optimized for high performance computing."
 },
+
 
 {
 title:"GPU Subsystem",
 image:"/images/gpu-architecture.png",
 description:
-"Parallel compute architecture for graphics and AI workloads."
+"Parallel processing architecture for graphics and AI workloads."
 },
+
 
 {
 title:"Tensor Accelerator",
 image:"/images/tensor-engine.png",
 description:
-"Dedicated AI acceleration engine for machine learning workloads."
+"Dedicated machine learning acceleration engine."
 },
 
+
 {
-title:"Memory System",
+title:"Memory Subsystem",
 image:"/images/memory-system.png",
 description:
-"Cache hierarchy and memory communication architecture."
+"High performance memory hierarchy and data movement architecture."
 },
+
 
 {
 title:"Security Architecture",
 image:"/images/security.png",
 description:
-"Hardware security and system protection mechanisms."
+"Hardware security mechanisms for reliable computing."
 }
+
 
 ];
 
@@ -52,11 +58,11 @@ description:
 export default function Technology(){
 
 
-return(
+return (
 
 <section className="
-bg-black
 py-24
+bg-black
 ">
 
 
@@ -69,7 +75,7 @@ px-6
 
 <h2 className="
 text-5xl
-font-black
+font-bold
 text-white
 ">
 
@@ -78,16 +84,18 @@ Technology
 </h2>
 
 
+
 <p className="
 mt-5
 text-gray-400
-max-w-3xl
 text-lg
+max-w-3xl
 ">
 
-Explore the engineering architecture behind the CORETRION™ computing platform.
+Explore the engineering blocks behind the CORETRION™ computing ecosystem.
 
 </p>
+
 
 
 
@@ -100,7 +108,8 @@ mt-14
 
 
 {
-architecture.map(item=>(
+
+architecture.map((item)=>(
 
 
 <div
@@ -108,17 +117,25 @@ architecture.map(item=>(
 key={item.title}
 
 className="
-rounded-3xl
+bg-white/5
 border
 border-white/10
+rounded-3xl
 overflow-hidden
-bg-white/5
 hover:border-cyan-400
-transition
+transition-all
+duration-300
 "
 
 
 >
+
+
+<div className="
+h-56
+bg-black
+overflow-hidden
+">
 
 
 <img
@@ -128,12 +145,18 @@ src={item.image}
 alt={item.title}
 
 className="
-h-56
 w-full
+h-full
 object-cover
+hover:scale-110
+transition
+duration-500
 "
 
 />
+
+
+</div>
 
 
 
@@ -162,10 +185,14 @@ text-gray-400
 </p>
 
 
-<button className="
+<button
+
+className="
 mt-6
 text-cyan-400
-">
+"
+
+>
 
 View Architecture →
 
@@ -181,7 +208,9 @@ View Architecture →
 
 ))
 
+
 }
+
 
 
 </div>
@@ -191,6 +220,7 @@ View Architecture →
 
 
 </section>
+
 
 )
 

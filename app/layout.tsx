@@ -1,30 +1,28 @@
 import "./globals.css";
-import type { Metadata } from "next";
 
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-
-export const metadata: Metadata = {
-  title: "CORETRION™",
-  description: "Next Generation Semiconductor Computing Platform",
+export const metadata = {
+  title: "CORETRION™ | Intelligent Computing Platform",
+  description:
+    "CORETRION™ processor ecosystem with CORELINK™ interconnect and CHIPSETRON™ controllers",
 };
 
+
 export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
+ children,
+}:{
+ children:React.ReactNode
 }) {
-  return (
-    <html lang="en">
-      <body className="bg-black text-white">
 
-        <Navbar />
+return (
+<html lang="en">
 
-        <main>{children}</main>
+<body>
 
-        <Footer />
+{children}
 
-      </body>
-    </html>
-  );
+</body>
+
+</html>
+);
+
 }
