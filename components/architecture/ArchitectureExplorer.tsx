@@ -27,45 +27,40 @@ export default function ArchitectureExplorer() {
 
         <div className="grid lg:grid-cols-12 gap-10">
 
+          {/* Left Side Cards */}
+
           <div className="lg:col-span-4 space-y-4">
-
             {architectureData.map((item) => (
-
-            <BlockCard
-  key={item.title}
-  title={item.title}
-  description={item.short}
-  active={selected === i}
-  onClick={() => setSelected(i)}
-/>
-
+              <BlockCard
+                key={item.title}
+                title={item.title}
+                description={item.short}
+                active={active.title === item.title}
+                onClick={() => setActive(item)}
+              />
             ))}
-
           </div>
 
-          <div className="lg:col-span-8">
+          {/* Right Side Details */}
 
+          <div className="lg:col-span-8">
             <div className="rounded-3xl border border-cyan-500/20 bg-zinc-900/50 backdrop-blur-xl overflow-hidden">
 
               <div className="relative aspect-video">
-
                 <Image
                   src={active.image}
                   alt={active.title}
                   fill
                   className="object-contain p-8"
                 />
-
               </div>
 
               <DetailPanel item={active} />
 
             </div>
-
           </div>
 
         </div>
-
       </div>
     </section>
   );
