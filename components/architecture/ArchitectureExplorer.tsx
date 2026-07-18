@@ -33,13 +33,10 @@ export default function ArchitectureExplorer() {
 
             <BlockCard
   key={item.title}
-  data={{
-    title: item.title,
-    description: item.short,
-    image: item.image,
-  }}
-  active={item.title === active.title}
-  onClick={() => setActive(item)}
+  title={item.title}
+  description={item.short}
+  active={selected === i}
+  onClick={() => setSelected(i)}
 />
 
             ))}
