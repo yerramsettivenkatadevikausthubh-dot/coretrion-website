@@ -1,29 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 
-interface Particle {
-  x: number;
-  y: number;
-  opacity: number;
-  duration: number;
-}
+const particles = Array.from({ length: 80 }, (_, i) => ({
+  x: (i * 37) % 1500,
+  y: (i * 53) % 900,
+  opacity: 0.2 + (i % 5) * 0.15,
+  duration: 10 + (i % 20),
+}));
 
 export default function ParticleField() {
-  const [particles, setParticles] = useState<Particle[]>([]);
-
-  useEffect(() => {
-    const generated = Array.from({ length: 80 }, () => ({
-      x: Math.random() * 1500,
-      y: Math.random() * 900,
-      opacity: Math.random(),
-      duration: 10 + Math.random() * 20,
-    }));
-
-    setParticles(generated);
-  }, []);
-
   return (
     <div className="absolute inset-0 overflow-hidden">
       {particles.map((particle, i) => (
