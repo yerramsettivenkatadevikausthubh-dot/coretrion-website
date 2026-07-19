@@ -42,8 +42,11 @@ export default function Hero() {
       className="
       relative
       min-h-screen
-      flex
-      items-center
+flex
+items-center
+pt-28
+pb-20
+lg:pt-0
       overflow-hidden
       bg-black
       "
@@ -58,8 +61,10 @@ export default function Hero() {
         mx-auto
         px-6
         grid
-        lg:grid-cols-2
-        gap-16
+grid-cols-1
+lg:grid-cols-2
+gap-12
+lg:gap-16
         items-center
         w-full
         "
@@ -87,8 +92,9 @@ export default function Hero() {
           <h1
             className="
             text-white
-            text-6xl
-            lg:text-7xl
+            text-2xl
+sm:text-3xl
+lg:text-4xl
             font-black
             leading-tight
             mt-6
@@ -100,7 +106,9 @@ export default function Hero() {
           <p
             className="
             text-gray-400
-            text-xl
+            text-base
+sm:text-lg
+lg:text-xl
             mt-8
             max-w-xl
             leading-relaxed
@@ -111,9 +119,11 @@ export default function Hero() {
 
           <div
             className="
-            flex
-            gap-5
-            mt-10
+           flex
+flex-col
+sm:flex-row
+gap-4
+mt-10
             "
           >
             <a
@@ -158,7 +168,8 @@ export default function Hero() {
             className="
             grid
             grid-cols-3
-            gap-8
+gap-4
+sm:gap-8
             mt-16
             max-w-xl
             "
@@ -203,8 +214,9 @@ export default function Hero() {
           flex
           justify-center
           items-center
-          h-[650px]
-          "
+h-[350px]
+sm:h-[450px]
+lg:h-[650px]          "
         >
           {/* LARGE CYAN GLOW */}
 
@@ -220,8 +232,12 @@ export default function Hero() {
             }}
             className="
             absolute
-            w-[560px]
-            h-[560px]
+            w-[260px]
+h-[260px]
+sm:w-[360px]
+sm:h-[360px]
+lg:w-[560px]
+lg:h-[560px]
             rounded-full
             bg-cyan-400/20
             blur-[140px]
@@ -261,8 +277,12 @@ export default function Hero() {
             }}
             className="
             relative
-            w-[430px]
-            h-[430px]
+            w-[240px]
+h-[240px]
+sm:w-[320px]
+sm:h-[320px]
+lg:w-[430px]
+lg:h-[430px]
             rounded-3xl
             overflow-hidden
             border
@@ -293,8 +313,10 @@ export default function Hero() {
             }}
             className="
             absolute
-            left-0
-            top-20
+           left-2
+top-6
+sm:left-0
+sm:top-20
             bg-cyan-500/10
             border
             border-cyan-500/30
@@ -321,8 +343,10 @@ export default function Hero() {
             }}
             className="
             absolute
-            right-0
-            top-28
+           right-2
+top-10
+sm:right-0
+sm:top-28
             bg-cyan-500/10
             border
             border-cyan-500/30
@@ -349,8 +373,10 @@ export default function Hero() {
             }}
             className="
             absolute
-            left-5
-            bottom-16
+            left-2
+bottom-8
+sm:left-5
+sm:bottom-16
             bg-cyan-500/10
             border
             border-cyan-500/30
@@ -377,7 +403,10 @@ export default function Hero() {
             }}
             className="
             absolute
-            right-5
+            right-2
+bottom-10
+sm:right-5
+sm:bottom-20right-5
             bottom-20
             bg-cyan-500/10
             border

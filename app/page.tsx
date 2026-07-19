@@ -3,44 +3,32 @@ import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
 import Products from "@/components/Products";
 import Technology from "@/components/Technology";
+import Publications from "@/components/Publications";
 import Footer from "@/components/Footer";
 
+export default function Home() {
+  return (
+    <main
+      className="
+        bg-black
+        min-h-screen
+        overflow-x-hidden
+        scroll-smooth
+      "
+    >
+      <Navbar />
 
-export default function Home(){
+      <Hero />
 
+      <Stats />
 
-return(
+      <Products />
 
-<main
-className="
-bg-black
-min-h-screen
-overflow-x-hidden
-scroll-smooth
-"
->
+      <Technology />
 
+      <Publications />
 
-<Navbar />
-
-
-<Hero />
-
-
-<Stats />
-
-
-<Products />
-
-
-<Technology />
-
-
-<Footer />
-
-
-</main>
-
-)
-
+      <Footer />
+    </main>
+  );
 }
