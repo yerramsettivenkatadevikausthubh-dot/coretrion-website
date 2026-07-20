@@ -1,23 +1,54 @@
-"use client";
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import PCBBackground from "@/components/PCBBackground";
+import Image from "next/image";
+import {
+  Brain,
+  Cpu,
+  Network,
+  Zap,
+} from "lucide-react";
 
 
-export default function Tensor(){
+const features = [
+
+{
+title:"AI Matrix Processing",
+description:
+"Dedicated tensor compute engine optimized for neural network operations, machine learning inference and AI workloads.",
+icon:Brain
+},
+
+{
+title:"Parallel Compute Engine",
+description:
+"High throughput architecture enabling parallel mathematical operations for intelligent applications.",
+icon:Cpu
+},
+
+{
+title:"Neural Data Flow",
+description:
+"Optimized data movement between memory systems and accelerator units for efficient AI processing.",
+icon:Network
+},
+
+{
+title:"Edge AI Acceleration",
+description:
+"Hardware acceleration designed for embedded intelligence and real-time AI applications.",
+icon:Zap
+}
+
+];
+
+
+
+export default function TensorPage(){
 
 
 return(
 
-<main
-className="
-min-h-screen
-bg-black
-text-white
-overflow-hidden
-"
->
+<main className="bg-black min-h-screen overflow-hidden">
 
 
 <Navbar />
@@ -28,12 +59,24 @@ overflow-hidden
 className="
 relative
 pt-40
-pb-32
+pb-24
 "
 >
 
 
-<PCBBackground />
+<div
+className="
+absolute
+top-20
+left-1/2
+-translate-x-1/2
+w-[700px]
+h-[700px]
+rounded-full
+bg-purple-500/10
+blur-[180px]
+"
+/>
 
 
 
@@ -44,33 +87,39 @@ z-10
 max-w-7xl
 mx-auto
 px-6
+grid
+lg:grid-cols-2
+gap-16
+items-center
 "
 >
 
+
+<div>
 
 
 <p
 className="
 text-purple-400
-uppercase
 tracking-[0.4em]
+uppercase
+font-semibold
 "
 >
 
-Technology / AI Acceleration
+AI Acceleration Engine
 
 </p>
 
 
 
-
-
 <h1
 className="
-text-6xl
+mt-6
+text-5xl
 md:text-7xl
 font-black
-mt-6
+text-white
 "
 >
 
@@ -80,123 +129,66 @@ Tensor Accelerator
 
 
 
-
-
 <p
 className="
 mt-8
 text-xl
 text-gray-400
-max-w-3xl
+leading-relaxed
 "
 >
 
-Dedicated matrix computation hardware for machine learning
-and neural network inference.
-
-CORETRION Tensor architecture provides specialized
-acceleration for AI workloads, deep learning models
-and intelligent computing applications.
+A dedicated machine learning acceleration architecture
+inside CORETRION™ designed for neural computation,
+AI inference and intelligent edge processing.
 
 </p>
 
 
 
-
-
-
-
 <div
 className="
-grid
-md:grid-cols-3
-gap-8
-mt-16
+mt-10
+flex
+flex-wrap
+gap-4
 "
 >
 
 
 {
-
-
 [
-
-{
-title:"Matrix Compute Engine",
-desc:
-"Dedicated hardware units optimized for matrix multiplication and neural network operations."
-},
-
-
-{
-title:"AI Inference Acceleration",
-desc:
-"High performance execution engine for machine learning inference workloads."
-},
-
-
-{
-title:"Low Precision Computing",
-desc:
-"Optimized arithmetic support for efficient AI model execution."
-}
-
-
+"Matrix Compute",
+"AI Inference",
+"Machine Learning",
+"Edge Intelligence"
 ].map(item=>(
 
 
-<div
-
-key={item.title}
-
+<span
+key={item}
 className="
-bg-white/5
+px-5
+py-3
+rounded-full
+bg-purple-500/10
 border
-border-white/10
-rounded-3xl
-p-8
-hover:border-purple-400
-transition
-"
-
->
-
-
-<h2
-className="
-text-2xl
-font-bold
+border-purple-400/30
+text-purple-400
 "
 >
 
-{item.title}
+{item}
 
-</h2>
-
-
-
-<p
-className="
-mt-4
-text-gray-400
-"
->
-
-{item.desc}
-
-</p>
-
-
-
-</div>
+</span>
 
 
 ))
-
-
 }
 
 
+</div>
+
 
 </div>
 
@@ -208,114 +200,59 @@ text-gray-400
 
 <div
 className="
-mt-20
-grid
-md:grid-cols-2
-gap-8
+relative
+flex
+justify-center
 "
 >
 
 
+<div
+className="
+absolute
+w-[450px]
+h-[450px]
+rounded-full
+bg-purple-500/20
+blur-[130px]
+"
+/>
+
 
 
 <div
+className="
+relative
+w-[420px]
+h-[420px]
+rounded-3xl
+border
+border-purple-400/30
+shadow-[0_0_120px_rgba(168,85,247,0.35)]
+"
+>
+
+
+<Image
+
+src="/images/tensor-engine.png"
+
+alt="Tensor Accelerator"
+
+fill
 
 className="
-bg-black
-border
-border-white/10
-rounded-3xl
+object-contain
 p-8
 "
 
->
-
-
-<h2
-className="
-text-3xl
-font-bold
-"
->
-
-Neural Network Processing
-
-</h2>
-
-
-
-<p
-className="
-mt-4
-text-gray-400
-"
->
-
-Tensor engine accelerates convolution,
-matrix operations and AI inference pipelines
-inside CORETRION.
-
-</p>
+/>
 
 
 </div>
 
 
-
-
-
-
-
-<div
-
-className="
-bg-black
-border
-border-white/10
-rounded-3xl
-p-8
-"
-
->
-
-
-<h2
-className="
-text-3xl
-font-bold
-"
->
-
-CPU + SIMD + Tensor Fusion
-
-</h2>
-
-
-
-<p
-className="
-mt-4
-text-gray-400
-"
->
-
-Hybrid execution allows CORETRION to combine
-general purpose processing with dedicated AI acceleration.
-
-</p>
-
-
 </div>
-
-
-
-
-
-</div>
-
-
-
-
 
 
 
@@ -328,11 +265,187 @@ general purpose processing with dedicated AI acceleration.
 
 
 
-<Footer />
+
+
+<section
+className="
+max-w-7xl
+mx-auto
+px-6
+pb-24
+"
+>
+
+
+<h2
+className="
+text-4xl
+md:text-5xl
+font-black
+text-white
+"
+>
+
+Tensor Engine Capabilities
+
+</h2>
+
+
+
+
+<div
+className="
+grid
+md:grid-cols-2
+gap-8
+mt-12
+"
+>
+
+
+{
+features.map((item)=>{
+
+
+const Icon=item.icon;
+
+
+return(
+
+<div
+
+key={item.title}
+
+className="
+rounded-3xl
+border
+border-white/10
+bg-white/5
+p-8
+hover:border-purple-400/50
+transition
+"
+
+>
+
+
+<Icon
+
+size={36}
+
+className="text-purple-400"
+
+/>
+
+
+
+<h3
+className="
+mt-6
+text-2xl
+font-bold
+text-white
+"
+>
+
+{item.title}
+
+</h3>
+
+
+
+<p
+className="
+mt-4
+text-gray-400
+leading-7
+"
+>
+
+{item.description}
+
+</p>
+
+
+</div>
+
+
+)
+
+
+})
+
+}
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section
+className="
+border-t
+border-white/10
+py-20
+"
+>
+
+
+<div
+className="
+max-w-5xl
+mx-auto
+px-6
+text-center
+"
+>
+
+
+<h2
+className="
+text-4xl
+font-black
+text-white
+"
+>
+
+CORETRION™ AI Compute Pipeline
+
+</h2>
+
+
+
+<p
+className="
+mt-8
+text-xl
+text-gray-400
+"
+>
+
+Input Data → Tensor Engine → Neural Processing → AI Output
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+<Footer/>
 
 
 </main>
-
 
 )
 

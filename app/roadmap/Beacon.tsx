@@ -2,43 +2,34 @@
 
 import { motion } from "framer-motion";
 
-export default function Beacon() {
-  return (
-    <div className="absolute left-[700px] top-[270px] -translate-x-1/2 -translate-y-1/2">
 
-      {/* Radar Ring */}
+export default function Beacon(){
 
-      <motion.div
-        animate={{
-          scale: [1, 2.8],
-          opacity: [0.8, 0]
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity
-        }}
-        className="absolute w-20 h-20 rounded-full border-2 border-cyan-400"
-      />
 
-      <motion.div
-        animate={{
-          scale: [1, 2.3],
-          opacity: [0.6, 0]
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          delay: 0.5
-        }}
-        className="absolute w-20 h-20 rounded-full border border-cyan-300"
-      />
+return(
 
-      <div className="absolute left-10 -top-10 text-cyan-300 font-bold">
+<motion.div
 
-        YOU ARE HERE
+animate={{
+scale:[1,1.3,1],
+opacity:[0.5,1,0.5]
+}}
 
-      </div>
+transition={{
+duration:2,
+repeat:Infinity
+}}
 
-    </div>
-  );
+className="
+w-4
+h-4
+rounded-full
+bg-green-400
+shadow-[0_0_30px_rgba(34,197,94,1)]
+"
+
+/>
+
+)
+
 }

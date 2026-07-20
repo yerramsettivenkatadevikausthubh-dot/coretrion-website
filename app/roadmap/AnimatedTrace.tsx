@@ -1,76 +1,44 @@
 "use client";
 
+
+import { motion } from "framer-motion";
+
+
 export default function AnimatedTrace(){
+
 
 return(
 
-<svg
+<motion.div
 
-className="absolute inset-0 w-full h-full"
+animate={{
+backgroundPosition:[
+"0% 50%",
+"100% 50%",
+"0% 50%"
+]
+}}
 
-viewBox="0 0 1300 650"
+transition={{
+duration:6,
+repeat:Infinity,
+ease:"linear"
+}}
 
->
-
-<defs>
-
-<linearGradient id="trace">
-
-<stop offset="0%" stopColor="#00ffff"/>
-
-<stop offset="100%" stopColor="#0077ff"/>
-
-</linearGradient>
-
-</defs>
-
-<path
-
-d="
-
-M100 520
-
-L260 430
-
-L470 350
-
-L700 270
-
-L930 180
-
-L1160 90
-
+className="
+absolute
+top-1/2
+left-0
+right-0
+h-[2px]
+bg-gradient-to-r
+from-transparent
+via-cyan-400
+to-transparent
+bg-[length:200%_100%]
 "
-
-stroke="url(#trace)"
-
-strokeWidth="6"
-
-fill="none"
-
-strokeLinecap="round"
-
-strokeDasharray="20"
-
->
-
-<animate
-
-attributeName="stroke-dashoffset"
-
-from="0"
-
-to="-120"
-
-dur="3s"
-
-repeatCount="indefinite"
-
 />
 
-</path>
-
-</svg>
 
 )
 

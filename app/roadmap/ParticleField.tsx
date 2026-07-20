@@ -2,36 +2,89 @@
 
 import { motion } from "framer-motion";
 
-const particles = Array.from({ length: 80 }, (_, i) => ({
-  x: (i * 37) % 1500,
-  y: (i * 53) % 900,
-  opacity: 0.2 + (i % 5) * 0.15,
-  duration: 10 + (i % 20),
-}));
 
-export default function ParticleField() {
-  return (
-    <div className="absolute inset-0 overflow-hidden">
-      {particles.map((particle, i) => (
-        <motion.div
-          key={i}
-          initial={{
-            x: particle.x,
-            y: particle.y,
-            opacity: particle.opacity,
-          }}
-          animate={{
-            y: "-100%",
-            opacity: [0.2, 1, 0.2],
-          }}
-          transition={{
-            duration: particle.duration,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute h-1 w-1 rounded-full bg-cyan-300"
-        />
-      ))}
-    </div>
-  );
+const particles=new Array(25).fill(0);
+
+
+
+export default function ParticleField(){
+
+
+return(
+
+<div
+className="
+absolute
+inset-0
+overflow-hidden
+pointer-events-none
+"
+>
+
+
+{
+
+particles.map((_,i)=>(
+
+
+<motion.div
+
+key={i}
+
+animate={{
+
+y:[
+0,
+-120,
+0
+],
+
+opacity:[
+0,
+1,
+0
+]
+
+}}
+
+transition={{
+
+duration:
+4+(i%5),
+
+repeat:Infinity,
+
+delay:
+i*0.2
+
+}}
+
+className="
+absolute
+w-1
+h-1
+rounded-full
+bg-cyan-400
+"
+
+style={{
+
+left:`${Math.random()*100}%`,
+top:`${Math.random()*100}%`
+
+}}
+
+/>
+
+
+))
+
+
+}
+
+
+</div>
+
+)
+
 }

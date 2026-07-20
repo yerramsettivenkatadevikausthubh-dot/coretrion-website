@@ -1,182 +1,161 @@
 "use client";
 
-import Image from "next/image";
+import { motion } from "framer-motion";
 
-interface Props{
 
-title:string;
-status:string;
-progress:number;
-image:string;
-description:string;
-x:number;
-y:number;
-
+interface Props {
+  year:string;
+  phase:string;
+  status:string;
+  index:number;
 }
 
+
 export default function RoadmapNode({
-
-title,
+year,
+phase,
 status,
-progress,
-image,
-description,
-x,
-y
-
+index
 }:Props){
 
-const color=
-status==="completed"
-?"#00ff88"
-:status==="current"
-?"#00e5ff"
-:"#555";
 
 return(
 
-<div
+<motion.div
 
-style={{
-
-position:"absolute",
-
-left:x,
-
-top:y,
-
-transform:"translate(-50%,-50%)"
-
+initial={{
+scale:0,
+opacity:0
 }}
 
-className="group cursor-pointer"
-
->
-
-<div
-
-style={{
-
-width:34,
-
-height:34,
-
-borderRadius:"50%",
-
-background:color,
-
-boxShadow:`0 0 35px ${color}`
-
+whileInView={{
+scale:1,
+opacity:1
 }}
 
-className={status==="current"
-?"animate-pulse":""
-}
+viewport={{
+once:true
+}}
 
-/>
-
-<div className="
-
-hidden
-group-hover:block
-
-absolute
-
-left-10
-
-top-0
-
-w-80
-
-bg-[#0b0f14]
-
-border
-
-border-cyan-500/40
-
-rounded-xl
-
-overflow-hidden
-
-shadow-2xl
-
-">
-
-<Image
-
-src={image}
-
-alt={title}
-
-width={450}
-
-height={250}
-
-className="w-full"
-
-/>
-
-<div className="p-4">
-
-<h3 className="text-cyan-400 font-bold text-xl">
-
-{title}
-
-</h3>
-
-<p className="text-gray-300 mt-2">
-
-{description}
-
-</p>
-
-<div className="
-
-mt-4
-
-w-full
-
-bg-gray-700
-
-rounded-full
-
-h-2
-
-">
-
-<div
-
-style={{
-
-width:`${progress}%`
-
+transition={{
+duration:0.6,
+delay:index*0.2
 }}
 
 className="
-
-bg-cyan-400
-
-h-2
-
-rounded-full
-
+relative
+flex
+items-center
+justify-center
 "
 
+
+>
+
+
+<div
+className="
+absolute
+w-8
+h-8
+rounded-full
+bg-cyan-400
+blur-xl
+opacity-70
+"
 />
+
+
+<div
+className="
+relative
+w-16
+h-16
+rounded-full
+border
+border-cyan-400
+bg-black
+flex
+items-center
+justify-center
+shadow-[0_0_40px_rgba(34,211,238,0.8)]
+"
+>
+
+
+<span className="
+text-cyan-400
+font-black
+">
+
+{index+1}
+
+</span>
+
 
 </div>
 
-<p className="text-sm text-cyan-300 mt-2">
 
-{progress}% Complete
+<div
+className="
+absolute
+top-20
+text-center
+w-40
+"
+>
+
+
+<h3
+className="
+text-white
+font-black
+text-lg
+"
+>
+
+{year}
+
+</h3>
+
+
+<p
+className="
+text-gray-400
+text-sm
+mt-2
+"
+>
+
+{phase}
 
 </p>
 
-</div>
+
+<span
+className="
+inline-block
+mt-3
+px-3
+py-1
+rounded-full
+bg-cyan-500/10
+border
+border-cyan-400/30
+text-cyan-400
+text-xs
+"
+>
+
+{status}
+
+</span>
+
 
 </div>
 
-</div>
+
+</motion.div>
 
 )
 

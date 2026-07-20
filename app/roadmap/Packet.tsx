@@ -1,44 +1,35 @@
 "use client";
 
+
 import { motion } from "framer-motion";
 
-interface PacketProps {
-  delay: number;
-}
 
-export default function Packet({ delay }: PacketProps) {
+export default function Packet(){
 
-  return (
 
-    <motion.div
+return(
 
-      initial={{
-        offsetDistance: "0%"
-      }}
+<motion.div
 
-      animate={{
-        offsetDistance: "100%"
-      }}
+animate={{
+x:["-20px","20px","-20px"]
+}}
 
-      transition={{
-        duration: 5,
-        delay,
-        repeat: Infinity,
-        ease: "linear"
-      }}
+transition={{
+duration:3,
+repeat:Infinity
+}}
 
-      style={{
-        offsetPath:
-          "path('M100 520 L260 430 L470 350 L700 270 L930 180 L1160 90')"
-      }}
+className="
+w-3
+h-3
+rounded-full
+bg-purple-400
+shadow-[0_0_20px_rgba(168,85,247,.8)]
+"
 
-      className="absolute"
+/>
 
-    >
+)
 
-      <div className="w-4 h-4 rounded-full bg-cyan-300 shadow-[0_0_25px_#00ffff]" />
-
-    </motion.div>
-
-  );
 }

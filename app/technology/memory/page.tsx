@@ -1,245 +1,194 @@
-"use client";
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import PCBBackground from "@/components/PCBBackground";
+import Image from "next/image";
+import {
+  Database,
+  Layers,
+  Zap,
+  Network,
+} from "lucide-react";
 
 
-export default function Memory(){
+const features = [
+
+{
+title:"High Performance Memory",
+description:
+"Optimized memory subsystem designed for efficient data access and high throughput computing workloads.",
+icon:Database,
+},
+
+{
+title:"Memory Hierarchy",
+description:
+"Structured memory architecture enabling efficient communication between processing units and storage resources.",
+icon:Layers,
+},
+
+{
+title:"Fast Data Movement",
+description:
+"Advanced data transfer mechanisms supporting AI acceleration and heterogeneous compute workloads.",
+icon:Zap,
+},
+
+{
+title:"Compute Memory Integration",
+description:
+"Designed to efficiently connect CPU, SIMD, Tensor and GPU execution engines.",
+icon:Network,
+},
+
+];
+
+
+
+export default function MemoryTechnologyPage(){
 
 
 return(
 
-<main
-className="
-min-h-screen
-bg-black
-text-white
-overflow-hidden
-"
->
+<main className="bg-black min-h-screen overflow-hidden">
 
 
 <Navbar />
 
 
 
-<section
-className="
+<section className="
 relative
 pt-40
-pb-32
-"
->
+pb-24
+">
 
 
-<PCBBackground />
+<div className="
+absolute
+top-20
+left-1/2
+-translate-x-1/2
+w-[700px]
+h-[700px]
+rounded-full
+bg-blue-500/10
+blur-[180px]
+"/>
 
 
 
-<div
-className="
+<div className="
 relative
 z-10
 max-w-7xl
 mx-auto
 px-6
-"
->
+grid
+lg:grid-cols-2
+gap-16
+items-center
+">
 
 
+<div>
 
-<p
-className="
-text-cyan-400
-uppercase
+
+<p className="
+text-blue-400
 tracking-[0.4em]
-"
->
+uppercase
+font-semibold
+">
 
-Technology / Memory Architecture
+Memory Technology
 
 </p>
 
 
 
-
-<h1
-className="
-text-6xl
+<h1 className="
+mt-6
+text-5xl
 md:text-7xl
 font-black
-mt-6
-"
->
+text-white
+">
 
-Memory System
+MEMORY SUBSYSTEM
 
 </h1>
 
 
 
-
-<p
-className="
+<p className="
 mt-8
 text-xl
 text-gray-400
+leading-relaxed
 max-w-3xl
-"
->
+">
 
-High efficiency cache hierarchy and memory subsystem
-designed for heterogeneous computing workloads across
-CPU, SIMD, Tensor and GPU engines.
+High-performance memory architecture enabling
+efficient communication between CORETRION™ compute
+engines, accelerators and intelligent workloads.
 
 </p>
 
 
 
+<div className="
+mt-10
+flex
+flex-wrap
+gap-4
+">
 
 
-<div
-className="
-grid
-md:grid-cols-3
-gap-8
-mt-16
-"
->
+<span className="
+px-5
+py-3
+rounded-full
+bg-blue-500/10
+border
+border-blue-400/30
+text-blue-400
+">
+
+Data Efficiency
+
+</span>
 
 
-{
-
-
-[
-
-{
-title:"Cache Hierarchy",
-desc:"Optimized multi-level cache architecture for low latency data access."
-},
-
-
-{
-title:"Unified Memory Fabric",
-desc:"Shared memory communication between heterogeneous compute engines."
-},
-
-
-{
-title:"High Bandwidth Access",
-desc:"Designed to support AI workloads and parallel processing demands."
-}
-
-
-].map(item=>(
-
-
-<div
-
-key={item.title}
-
-className="
+<span className="
+px-5
+py-3
+rounded-full
 bg-white/5
 border
 border-white/10
-rounded-3xl
-p-8
-hover:border-cyan-400
-transition
-"
+text-white
+">
 
->
+High Bandwidth
 
-
-<h2
-className="
-text-2xl
-font-bold
-"
->
-
-{item.title}
-
-</h2>
+</span>
 
 
-
-<p
-className="
-mt-4
-text-gray-400
-"
->
-
-{item.desc}
-
-</p>
-
-
-
-</div>
-
-
-))
-
-
-}
-
-
-
-</div>
-
-
-
-
-
-<div
-className="
-mt-20
-grid
-md:grid-cols-2
-gap-8
-"
->
-
-
-
-<div
-className="
-bg-black
+<span className="
+px-5
+py-3
+rounded-full
+bg-white/5
 border
 border-white/10
-rounded-3xl
-p-8
-"
->
+text-white
+">
+
+AI Ready
+
+</span>
 
 
-<h2
-className="
-text-3xl
-font-bold
-"
->
-
-CORETRION Memory Flow
-
-</h2>
-
-
-<p
-className="
-mt-4
-text-gray-400
-"
->
-
-Memory subsystem connects processor pipeline,
-accelerators and CORELINK fabric to enable
-efficient data movement.
-
-</p>
+</div>
 
 
 </div>
@@ -248,49 +197,55 @@ efficient data movement.
 
 
 
-<div
-className="
-bg-black
+<div className="
+flex
+justify-center
+relative
+">
+
+
+<div className="
+absolute
+w-[450px]
+h-[450px]
+rounded-full
+bg-blue-400/20
+blur-[120px]
+"/>
+
+
+
+<div className="
+relative
+w-[400px]
+h-[400px]
+rounded-3xl
 border
-border-white/10
-rounded-3xl
+border-blue-400/30
+shadow-[0_0_120px_rgba(59,130,246,0.35)]
+">
+
+
+<Image
+
+src="/images/memory-system.png"
+
+alt="Memory Subsystem"
+
+fill
+
+className="
+object-contain
 p-8
 "
->
 
-
-<h2
-className="
-text-3xl
-font-bold
-"
->
-
-AI Workload Optimization
-
-</h2>
-
-
-<p
-className="
-mt-4
-text-gray-400
-"
->
-
-Optimized memory access patterns for Tensor,
-SIMD and GPU accelerated applications.
-
-</p>
+/>
 
 
 </div>
 
 
-
 </div>
-
-
 
 
 
@@ -302,11 +257,161 @@ SIMD and GPU accelerated applications.
 
 
 
-<Footer />
+
+<section className="
+py-24
+max-w-7xl
+mx-auto
+px-6
+">
+
+
+<h2 className="
+text-5xl
+font-black
+text-white
+">
+
+Memory Architecture
+
+</h2>
+
+
+
+<div className="
+grid
+md:grid-cols-4
+gap-6
+mt-14
+">
+
+
+{
+[
+"L1 Cache",
+"L2 Cache",
+"System Memory",
+"Accelerator Memory"
+].map(item=>(
+
+
+<div
+key={item}
+className="
+rounded-2xl
+border
+border-blue-400/20
+bg-white/5
+p-7
+text-center
+text-blue-300
+font-bold
+"
+>
+
+{item}
+
+</div>
+
+
+))
+}
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section className="
+pb-24
+max-w-7xl
+mx-auto
+px-6
+">
+
+
+<div className="
+grid
+md:grid-cols-2
+gap-8
+">
+
+
+{
+features.map((item)=>{
+
+const Icon=item.icon;
+
+
+return(
+
+<div
+key={item.title}
+className="
+p-8
+rounded-3xl
+border
+border-white/10
+bg-white/5
+hover:border-blue-400/50
+transition
+"
+>
+
+
+<Icon
+size={34}
+className="text-blue-400"
+/>
+
+
+<h3 className="
+mt-6
+text-2xl
+font-bold
+text-white
+">
+
+{item.title}
+
+</h3>
+
+
+<p className="
+mt-4
+text-gray-400
+leading-7
+">
+
+{item.description}
+
+</p>
+
+
+</div>
+
+)
+
+})
+}
+
+
+</div>
+
+
+</section>
+
+
+
+<Footer/>
 
 
 </main>
-
 
 )
 

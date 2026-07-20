@@ -1,102 +1,73 @@
 "use client";
 
-import { motion, animate, useMotionValue, useTransform } from "framer-motion";
-import { useEffect } from "react";
 
-const stats = [
-  ["RTL Modules", 62],
-  ["Verified", 47],
-  ["Architecture Blocks", 18],
-  ["ISA Instructions", 64],
-];
-
-
-function Counter({ value }: { value: number }) {
-
-  const count = useMotionValue(0);
-
-  const rounded = useTransform(count, (latest) =>
-    Math.round(latest)
-  );
-
-
-  useEffect(() => {
-
-    const animation = animate(
-      count,
-      value,
-      {
-        duration: 2
-      }
-    );
-
-    return animation.stop;
-
-  }, [count, value]);
-
-
-  return (
-    <motion.h2
-      className="
-      text-5xl
-      font-bold
-      text-cyan-400
-      mt-4
-      "
-    >
-      {rounded}
-    </motion.h2>
-  );
-}
-
+import { motion } from "framer-motion";
 
 
 export default function LiveStats(){
+
 
 return(
 
 <div
 className="
-grid
-grid-cols-4
-gap-8
-mb-20
+flex
+justify-center
+mt-12
 "
 >
 
-{
-stats.map(([title,value])=>(
 
-<div
+<motion.div
 
-key={title}
+animate={{
+
+boxShadow:[
+
+"0 0 10px rgba(34,211,238,.2)",
+
+"0 0 40px rgba(34,211,238,.8)",
+
+"0 0 10px rgba(34,211,238,.2)"
+
+]
+
+}}
+
+transition={{
+
+duration:3,
+
+repeat:Infinity
+
+}}
 
 className="
-bg-[#0b1018]
+px-8
+py-4
+rounded-full
 border
-border-cyan-500/20
-rounded-2xl
-p-8
-text-center
+border-cyan-400/30
+bg-cyan-400/10
 "
 
 >
 
-<p className="text-gray-400">
 
-{title}
+<span
+className="
+text-cyan-400
+font-bold
+"
+>
 
-</p>
+● CORETRION™ Silicon Development Active
+
+</span>
 
 
-<Counter value={Number(value)} />
+</motion.div>
 
-
-</div>
-
-))
-
-}
 
 </div>
 

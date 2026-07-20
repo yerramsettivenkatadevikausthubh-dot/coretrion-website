@@ -1,69 +1,78 @@
-export const roadmap = [
+export const roadmapData = [
 
 {
-id:1,
-title:"Architecture",
-status:"completed",
-progress:100,
-x:100,
-y:520,
-image:"/images/coretrion_overall.png",
-description:"CORETRION architecture finalized."
+year:"2024",
+phase:"Architecture Foundation",
+status:"Completed",
+
+description:
+"CORETRION™ processor architecture definition and custom semiconductor ecosystem planning.",
+
+milestones:[
+"32-bit Hybrid Compute Architecture",
+"Custom ISA Definition",
+"CPU + SIMD + Tensor + GPU Architecture Planning",
+"CORELINK™ Interconnect Concept"
+]
+
 },
 
-{
-id:2,
-title:"RTL Development",
-status:"completed",
-progress:100,
-x:260,
-y:430,
-image:"/images/coretrion_datapath.png",
-description:"RTL modules implemented."
-},
 
 {
-id:3,
-title:"Simulation",
-status:"completed",
-progress:100,
-x:470,
-y:350,
-image:"/images/branch_prediction.png",
-description:"Simulation completed."
+year:"2025",
+phase:"RTL Development",
+status:"Completed",
+
+description:
+"Development of processor RTL modules and accelerator subsystems.",
+
+milestones:[
+"Pipeline Core Implementation",
+"SIMD Engine Development",
+"Tensor Accelerator RTL",
+"GPU Compute Subsystem",
+"Security Modules"
+]
+
 },
 
-{
-id:4,
-title:"Verification",
-status:"current",
-progress:72,
-x:700,
-y:270,
-image:"/images/hazard_unit.png",
-description:"Regression and coverage verification."
-},
 
 {
-id:5,
-title:"FPGA Prototype",
-status:"future",
-progress:0,
-x:930,
-y:180,
-image:"/images/gpu_architecture.png",
-description:"FPGA implementation."
+year:"2026",
+phase:"Verification & FPGA Prototype",
+status:"Active",
+
+description:
+"Functional verification, simulation validation and FPGA prototype preparation.",
+
+milestones:[
+"System Level Verification",
+"Testbench Development",
+"Performance Analysis",
+"FPGA Prototype Deployment",
+"Firmware Bring-up"
+]
+
 },
 
+
 {
-id:6,
-title:"ASIC Tape-out",
-status:"future",
-progress:0,
-x:1160,
-y:90,
-image:"/images/CORETRTION.png",
-description:"Final silicon fabrication."
+year:"2027",
+phase:"ASIC Silicon Realization",
+status:"Target",
+
+description:
+"Transition from validated RTL design to fabricated semiconductor silicon.",
+
+milestones:[
+"RTL Freeze",
+"Synthesis",
+"Physical Design",
+"DRC / LVS Verification",
+"Tapeout",
+"Silicon Validation"
+]
+
 }
 
-]
+];

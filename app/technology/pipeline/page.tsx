@@ -1,203 +1,182 @@
-"use client";
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import PCBBackground from "@/components/PCBBackground";
+import Image from "next/image";
+import {
+  Cpu,
+  GitBranch,
+  Activity,
+  Zap,
+} from "lucide-react";
 
 
-export default function Pipeline(){
+const features = [
+
+{
+title:"Multi Stage Execution",
+description:
+"Optimized instruction processing flow designed for efficient execution across CORETRION™ compute engines.",
+icon:Cpu
+},
+
+{
+title:"Instruction Flow Control",
+description:
+"Advanced control logic manages instruction routing, execution stages and pipeline synchronization.",
+icon:GitBranch
+},
+
+{
+title:"High Performance Processing",
+description:
+"Pipeline architecture improves throughput by enabling parallel instruction execution.",
+icon:Activity
+},
+
+{
+title:"Accelerator Integration",
+description:
+"Native integration with SIMD, Tensor and GPU execution units.",
+icon:Zap
+}
+
+];
+
+
+
+export default function PipelinePage(){
 
 
 return(
 
-<main
-className="
-min-h-screen
-bg-black
-text-white
-overflow-hidden
-"
->
+<main className="bg-black min-h-screen overflow-hidden">
 
 
-<Navbar />
+<Navbar/>
 
 
 
-<section
-className="
+
+<section className="
 relative
 pt-40
-pb-32
+pb-24
+">
+
+
+<div className="
+absolute
+top-20
+left-1/2
+-translate-x-1/2
+w-[700px]
+h-[700px]
+rounded-full
+bg-cyan-500/10
+blur-[180px]
 "
->
-
-
-<PCBBackground />
+/>
 
 
 
-<div
-className="
+<div className="
 relative
 z-10
 max-w-7xl
 mx-auto
 px-6
-"
->
+grid
+lg:grid-cols-2
+gap-16
+items-center
+">
 
 
+<div>
 
-<p
-className="
+
+<p className="
 text-cyan-400
-uppercase
 tracking-[0.4em]
-"
->
+uppercase
+font-semibold
+">
 
-Technology / Processor Core
+Processor Pipeline Architecture
 
 </p>
 
 
 
-
-<h1
-className="
-text-6xl
+<h1 className="
+mt-6
+text-5xl
 md:text-7xl
 font-black
-mt-6
-"
->
+text-white
+">
 
-CORETRION Pipeline Architecture
+Pipeline
 
 </h1>
 
 
 
-
-<p
-className="
+<p className="
 mt-8
 text-xl
 text-gray-400
-max-w-3xl
-"
->
+leading-relaxed
+">
 
-Fetch → Decode → Execute → Memory → Writeback
-
-Five stage processor pipeline optimized for hybrid workloads
-combining scalar computing, SIMD, Tensor and GPU acceleration.
+CORETRION™ pipeline architecture enables efficient
+instruction processing through optimized execution stages,
+control flow management and accelerator integration.
 
 </p>
 
 
 
-
-
-{/* PIPELINE STAGES */}
-
-
-<div
-className="
-grid
-md:grid-cols-5
-gap-6
-mt-20
-"
->
-
+<div className="
+mt-10
+flex
+flex-wrap
+gap-4
+">
 
 
 {
-
-
 [
-
-"FETCH",
-"DECODE",
-"EXECUTE",
-"MEMORY",
-"WRITEBACK"
-
-
-].map((stage,index)=>(
+"Fetch",
+"Decode",
+"Execute",
+"Memory",
+"Writeback"
+].map(stage=>(
 
 
-<div
-
+<span
 key={stage}
-
 className="
-bg-white/5
+px-5
+py-3
+rounded-full
+bg-cyan-500/10
 border
-border-white/10
-rounded-3xl
-p-6
-text-center
-hover:border-cyan-400
-transition
-"
-
->
-
-
-<div
-className="
+border-cyan-400/30
 text-cyan-400
-text-4xl
-font-black
-"
->
-
-0{index+1}
-
-</div>
-
-
-
-<h2
-className="
-text-xl
-font-bold
-mt-4
 "
 >
 
 {stage}
 
-</h2>
-
-
-
-<p
-className="
-text-gray-400
-mt-3
-text-sm
-"
->
-
-Pipeline stage optimized for
-high performance execution.
-
-</p>
-
-
-
-</div>
+</span>
 
 
 ))
-
-
 }
 
+
+</div>
 
 
 </div>
@@ -206,102 +185,55 @@ high performance execution.
 
 
 
+<div className="
+relative
+flex
+justify-center
+">
 
 
-{/* ARCHITECTURE DETAILS */}
-
-
-
-<div
-className="
-grid
-md:grid-cols-3
-gap-8
-mt-20
+<div className="
+absolute
+w-[450px]
+h-[450px]
+rounded-full
+bg-cyan-400/20
+blur-[130px]
 "
->
+/>
 
 
-
-{
-
-
-[
-
-{
-title:"Superscalar Execution",
-desc:"Multiple execution paths enabling efficient instruction processing."
-},
-
-
-{
-title:"Hybrid Compute Routing",
-desc:"Dynamic scheduling between CPU, SIMD, Tensor and GPU engines."
-},
+<div className="
+relative
+w-[420px]
+h-[420px]
+rounded-3xl
+border
+border-cyan-400/30
+shadow-[0_0_120px_rgba(34,211,238,0.3)]
+">
 
 
-{
-title:"Low Latency Control",
-desc:"Optimized pipeline control and hazard management."
-}
+<Image
 
+src="/images/coretrion-datapath.png"
 
-].map(item=>(
+alt="CORETRION Pipeline Architecture"
 
-
-<div
-
-key={item.title}
+fill
 
 className="
-bg-black
-border
-border-white/10
-rounded-3xl
+object-contain
 p-8
 "
 
->
-
-
-<h2
-className="
-text-2xl
-font-bold
-"
->
-
-{item.title}
-
-</h2>
-
-
-
-<p
-className="
-mt-4
-text-gray-400
-"
->
-
-{item.desc}
-
-</p>
+/>
 
 
 </div>
 
 
-))
-
-
-}
-
-
-
 </div>
-
-
 
 
 
@@ -313,11 +245,163 @@ text-gray-400
 
 
 
-<Footer />
+
+
+
+<section className="
+max-w-7xl
+mx-auto
+px-6
+pb-24
+">
+
+
+<h2 className="
+text-4xl
+md:text-5xl
+font-black
+text-white
+">
+
+Pipeline Features
+
+</h2>
+
+
+
+<div className="
+grid
+md:grid-cols-2
+gap-8
+mt-12
+">
+
+
+{
+features.map((item)=>{
+
+
+const Icon=item.icon;
+
+
+return(
+
+<div
+
+key={item.title}
+
+className="
+rounded-3xl
+border
+border-white/10
+bg-white/5
+p-8
+hover:border-cyan-400/40
+transition
+"
+
+>
+
+
+<Icon
+size={34}
+className="text-cyan-400"
+/>
+
+
+<h3 className="
+mt-6
+text-2xl
+font-bold
+text-white
+">
+
+{item.title}
+
+</h3>
+
+
+<p className="
+mt-4
+text-gray-400
+leading-7
+">
+
+{item.description}
+
+</p>
+
+
+</div>
+
+
+)
+
+
+})
+
+}
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section className="
+border-t
+border-white/10
+py-20
+">
+
+
+<div className="
+max-w-5xl
+mx-auto
+px-6
+text-center
+">
+
+
+<h2 className="
+text-4xl
+font-black
+text-white
+">
+
+CORETRION™ Execution Flow
+
+</h2>
+
+
+<p className="
+mt-8
+text-xl
+text-gray-400
+">
+
+Fetch → Decode → Execute → Memory → Writeback
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+<Footer/>
 
 
 </main>
-
 
 )
 
