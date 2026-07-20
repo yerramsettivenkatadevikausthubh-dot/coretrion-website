@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 
 interface BlockCardProps {
 
@@ -32,79 +34,104 @@ export default function BlockCard({
 }: BlockCardProps) {
 
 
-  return (
+return (
 
-    <button
+<button
 
-      onClick={onClick}
+onClick={onClick}
 
-      className={`
-      w-full
-      text-left
-      rounded-xl
-      border
-      p-5
-      transition-all
-      duration-300
+className={`
+w-full
+text-left
+rounded-xl
+border
+p-5
+transition-all
+duration-300
 
-      ${
-        active
-        ?
-        "border-blue-500 bg-blue-500/10"
-        :
-        "border-gray-700 hover:border-blue-400"
-      }
+${
+active
+?
+"border-blue-500 bg-blue-500/10"
+:
+"border-gray-700 hover:border-blue-400"
+}
 
-      `}
+`}
 
-    >
-
-
-      {
-        image &&
-
-        <img
-          src={image}
-          alt={title}
-          className="
-          w-full
-          rounded-lg
-          mb-4
-          "
-        />
-
-      }
+>
 
 
 
-      <h3
-        className="
-        text-xl
-        font-semibold
-        text-white
-        "
-      >
+{
+image &&
 
-        {title}
+<div
+className="
+relative
+w-full
+h-48
+mb-4
+rounded-lg
+overflow-hidden
+"
+>
 
-      </h3>
+<Image
+
+src={image}
+
+alt={title}
+
+fill
+
+className="
+object-cover
+"
+
+/>
+
+</div>
+
+}
 
 
 
-      <p
-        className="
-        mt-2
-        text-gray-400
-        "
-      >
-
-        {description}
-
-      </p>
 
 
-    </button>
+<h3
 
-  );
+className="
+text-xl
+font-semibold
+text-white
+"
+
+>
+
+{title}
+
+</h3>
+
+
+
+<p
+
+className="
+mt-2
+text-gray-400
+"
+
+>
+
+{description}
+
+</p>
+
+
+
+</button>
+
+);
 
 }

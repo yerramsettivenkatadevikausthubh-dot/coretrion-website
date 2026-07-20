@@ -3,14 +3,20 @@
 import { motion } from "framer-motion";
 
 
-const particles=new Array(25).fill(0);
+const particles = Array.from({ length: 40 }, (_, i) => ({
+  id: i,
+  left: `${(i * 37) % 100}%`,
+  top: `${(i * 53) % 100}%`,
+  delay: (i % 10) * 0.3,
+  duration: 5 + (i % 5),
+}));
 
 
 
-export default function ParticleField(){
+export default function ParticleField() {
 
 
-return(
+return (
 
 <div
 className="
@@ -23,41 +29,12 @@ pointer-events-none
 
 
 {
-
-particles.map((_,i)=>(
+particles.map((particle)=>(
 
 
 <motion.div
 
-key={i}
-
-animate={{
-
-y:[
-0,
--120,
-0
-],
-
-opacity:[
-0,
-1,
-0
-]
-
-}}
-
-transition={{
-
-duration:
-4+(i%5),
-
-repeat:Infinity,
-
-delay:
-i*0.2
-
-}}
+key={particle.id}
 
 className="
 absolute
@@ -69,16 +46,35 @@ bg-cyan-400
 
 style={{
 
-left:`${Math.random()*100}%`,
-top:`${Math.random()*100}%`
+left:particle.left,
+
+top:particle.top
 
 }}
+
+animate={{
+
+opacity:[0,1,0],
+
+scale:[1,2,1]
+
+}}
+
+transition={{
+
+duration:particle.duration,
+
+repeat:Infinity,
+
+delay:particle.delay
+
+}}
+
 
 />
 
 
 ))
-
 
 }
 

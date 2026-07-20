@@ -203,7 +203,7 @@ mt-24
 
 
 {
-features.map((item,index)=>(
+features.map((item)=>(
 
 
 <motion.div
