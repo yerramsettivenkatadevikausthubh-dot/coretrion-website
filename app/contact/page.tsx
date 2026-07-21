@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
@@ -85,6 +87,77 @@ const expertise=[
 
 
 export default function ContactPage(){
+
+    const [loading, setLoading] = useState(false);
+
+const [form, setForm] = useState({
+  name: "",
+  email: "",
+  organization: "",
+  subject: "",
+  message: "",
+});
+
+const handleChange = (
+  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+) => {
+  setForm({
+    ...form,
+    [e.target.name]: e.target.value,
+  });
+};
+
+const handleSubmit = async (
+  e: React.FormEvent<HTMLFormElement>
+) => {
+
+  e.preventDefault();
+
+  setLoading(true);
+
+  try {
+
+    const res = await fetch("/api/contact", {
+
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify(form),
+
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+
+      alert("Inquiry submitted successfully.");
+
+      setForm({
+        name: "",
+        email: "",
+        organization: "",
+        subject: "",
+        message: "",
+      });
+
+    } else {
+
+      alert("Something went wrong.");
+
+    }
+
+  } catch {
+
+    alert("Server Error.");
+
+  }
+
+  setLoading(false);
+
+};
 
 return(
 
@@ -631,6 +704,7 @@ partnerships, we&apos;d love to hear from you.
 </p>
 
 <form
+onSubmit={handleSubmit}
 className="
 mt-10
 space-y-6
@@ -646,6 +720,9 @@ gap-6
 >
 
 <input
+name="name"
+value={form.name}
+onChange={handleChange}
 type="text"
 placeholder="Full Name"
 className="
@@ -663,6 +740,9 @@ transition
 />
 
 <input
+name="email"
+value={form.email}
+onChange={handleChange}
 type="email"
 placeholder="Email Address"
 className="
@@ -682,6 +762,9 @@ transition
 </div>
 
 <input
+name="organization"
+value={form.organization}
+onChange={handleChange}
 type="text"
 placeholder="Organization / Company"
 className="
@@ -699,6 +782,9 @@ transition
 />
 
 <input
+name="subject"
+value={form.subject}
+onChange={handleChange}
 type="text"
 placeholder="Subject"
 className="
@@ -716,10 +802,11 @@ transition
 />
 
 <textarea
-
+name="message"
+value={form.message}
+onChange={handleChange}
 rows={7}
-
-placeholder="Tell us about your project or inquiry..."
+placeholder="Tell us about your project..."
 
 className="
 w-full
@@ -739,7 +826,7 @@ transition
 
 <button
 
-type="button"
+type="submit"
 
 className="
 inline-flex
@@ -757,7 +844,7 @@ transition
 
 >
 
-Submit Inquiry
+{loading ? "Submitting..." : "Submit Inquiry"}
 
 <ArrowRight size={18}/>
 
