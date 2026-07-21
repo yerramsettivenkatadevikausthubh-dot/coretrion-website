@@ -419,7 +419,7 @@ FPGA validation,
 ASIC implementation
 and semiconductor research.
 
-Whether you're seeking collaboration,
+Whether you&apos;re seeking collaboration,
 technical guidance,
 or strategic engineering discussions,
 we would be pleased to connect.
@@ -1211,7 +1211,7 @@ leading-tight
 "
 >
 
-Engineering Tomorrow's
+Engineering Tomorrow&apos;s
 <br/>
 Compute Systems
 
