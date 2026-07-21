@@ -194,9 +194,9 @@ leading-tight
 "
 >
 
-Let's Build
+Let&apos;s Build
 <br/>
-Tomorrow's Computing
+Tomorrow&apos;s Computing
 
 </h1>
 
@@ -623,10 +623,10 @@ leading-8
 "
 >
 
-Whether you're interested in semiconductor
+Whether you&apos;re interested in semiconductor
 engineering, processor technologies,
 research collaboration or strategic
-partnerships, we'd love to hear from you.
+partnerships, we&apos;d love to hear from you.
 
 </p>
 
@@ -1197,7 +1197,7 @@ font-semibold
 "
 >
 
-LET'S CONNECT
+LET&apos;S CONNECT
 
 </p>
 
@@ -1228,7 +1228,7 @@ leading-8
 "
 >
 
-Let's explore how advanced processor architectures,
+Let&apos;s explore how advanced processor architectures,
 AI acceleration,
 embedded computing
 and semiconductor innovation
