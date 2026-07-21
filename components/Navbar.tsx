@@ -4,15 +4,51 @@ import { useState } from "react";
 import Link from "next/link";
 import {
   Menu,
-  X
+  X,
+  ChevronDown
 } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
 
 export default function Navbar(){
 
-
 const [mobile,setMobile] = useState(false);
+const [documentation,setDocumentation] = useState(false);
+
+
+const documentationMenu = [
+
+{
+name:"Product Overview",
+href:"/documentation/overview"
+},
+
+{
+name:"Architecture",
+href:"/documentation/architecture"
+},
+
+{
+name:"ISA Reference",
+href:"/documentation/isa"
+},
+
+{
+name:"RTL Documentation",
+href:"/documentation/rtl"
+},
+
+{
+name:"Verification",
+href:"/documentation/verification"
+},
+
+{
+name:"Publications",
+href:"/documentation/publications"
+}
+
+];
 
 
 
@@ -31,11 +67,6 @@ href:"/technology"
 {
 name:"Engineering",
 href:"/engineering"
-},
-
-{
-name:"Documentation",
-href:"/documentation"
 },
 
 {
@@ -82,9 +113,7 @@ justify-between
 >
 
 
-
 {/* LOGO */}
-
 
 <Link
 
@@ -107,9 +136,7 @@ CORETRION™
 
 
 
-
 {/* DESKTOP */}
-
 
 <div
 className="
@@ -123,7 +150,6 @@ gap-10
 
 {
 navItems.map(item=>(
-
 
 <Link
 
@@ -144,16 +170,137 @@ font-medium
 
 </Link>
 
+))
+}
+
+
+
+
+{/* DOCUMENTATION DROPDOWN */}
+
+
+<div
+
+className="
+relative
+"
+
+onMouseEnter={()=>setDocumentation(true)}
+
+onMouseLeave={()=>setDocumentation(false)}
+
+>
+
+
+<button
+
+className="
+flex
+items-center
+gap-2
+text-gray-300
+hover:text-cyan-400
+transition
+font-medium
+"
+
+>
+
+Documentation
+
+<ChevronDown size={16}/>
+
+</button>
+
+
+
+<AnimatePresence>
+
+
+{
+
+documentation &&
+
+<motion.div
+
+initial={{
+opacity:0,
+y:-10
+}}
+
+animate={{
+opacity:1,
+y:0
+}}
+
+exit={{
+opacity:0,
+y:-10
+}}
+
+className="
+absolute
+top-10
+left-0
+w-64
+rounded-2xl
+border
+border-white/10
+bg-black
+shadow-xl
+p-3
+"
+
+>
+
+
+{
+
+documentationMenu.map(item=>(
+
+
+<Link
+
+key={item.href}
+
+href={item.href}
+
+className="
+block
+px-4
+py-3
+rounded-xl
+text-gray-300
+hover:bg-cyan-400/10
+hover:text-cyan-400
+transition
+"
+
+>
+
+{item.name}
+
+</Link>
+
 
 ))
 
 }
 
 
+</motion.div>
+
+}
+
+
+</AnimatePresence>
+
+
 </div>
 
 
 
+</div>
 
 
 
@@ -173,8 +320,8 @@ onClick={()=>setMobile(!mobile)}
 
 >
 
-
 {
+
 mobile ?
 
 <X size={28}/>
@@ -189,9 +336,7 @@ mobile ?
 </button>
 
 
-
 </div>
-
 
 
 
@@ -201,14 +346,12 @@ mobile ?
 {/* MOBILE MENU */}
 
 
-
 <AnimatePresence>
 
 
 {
 
 mobile &&
-
 
 <motion.div
 
@@ -252,7 +395,6 @@ gap-6
 
 navItems.map(item=>(
 
-
 <Link
 
 key={item.href}
@@ -273,10 +415,73 @@ text-lg
 
 </Link>
 
+))
+
+}
+
+
+
+{/* MOBILE DOCUMENTATION */}
+
+
+<div>
+
+
+<p
+className="
+text-gray-300
+text-lg
+mb-3
+"
+>
+
+Documentation
+
+</p>
+
+
+<div
+className="
+ml-4
+flex
+flex-col
+gap-3
+"
+>
+
+{
+
+documentationMenu.map(item=>(
+
+<Link
+
+key={item.href}
+
+href={item.href}
+
+onClick={()=>setMobile(false)}
+
+className="
+text-gray-400
+hover:text-cyan-400
+"
+
+>
+
+{item.name}
+
+</Link>
 
 ))
 
 }
+
+
+</div>
+
+
+</div>
+
 
 
 </div>
